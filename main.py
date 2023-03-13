@@ -33,7 +33,8 @@ if __name__=="__main__":
 
     @client.event
     async def on_ready():
-        await tree.sync(guild=discord.Object(SERVER_ID))
-        print('Startup Success!!!')
+        await tree.sync()
+        #await tree.sync(guild=discord.Object(SERVER_ID))
+        print('Startup! ServerID:',SERVER_ID)
 
     client.run(DIS_TOKEN)
