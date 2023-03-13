@@ -1,17 +1,9 @@
 import discord
-from dotenv import load_dotenv
-import os
-from os.path import join, dirname
 from command.ask import charmy_gpt
+import settings
 
 if __name__=="__main__":
-    load_dotenv(verbose=True)
-    dotenv_path = join(dirname(__file__), '.env')
-    load_dotenv(dotenv_path)
-    DIS_TOKEN = os.environ.get("DISCORD_TOKEN")
-    API_KEY = os.environ.get("OPENAI_API_KEY")
-    SERVER_ID = os.environ.get("SERVER_ID")
-
+    bot_token, server_id, api_key = settings.load_env()
     client = discord.Client(intents=discord.Intents.all())
     tree = discord.app_commands.CommandTree(client)
 
@@ -23,7 +15,7 @@ if __name__=="__main__":
         await ctx.response.defer()
 
         try:
-            message = charmy_gpt(API_KEY,text)
+            message = charmy_gpt(api_key,text)
         except Exception as e:
             message = "回答が見つからなかったか、内部でエラーが発生した可能性があります。"
             print(e)
@@ -33,8 +25,8 @@ if __name__=="__main__":
 
     @client.event
     async def on_ready():
-        await tree.sync()
-        #await tree.sync(guild=discord.Object(SERVER_ID))
-        print('Startup! ServerID:',SERVER_ID)
+        #await tree.sync()
+        await tree.sync(guild=discord.Object(server_id))
+        print('Startup! ServerID:',server_id)
 
-    client.run(DIS_TOKEN)
+    client.run(bot_token)
