@@ -1,2 +1,3 @@
 # Charmy for Xanadu  
-ChatGPT APIを利用した全く新しいBotにする
+Rev 0.0.2  
+* 環境変数を別ファイルに
