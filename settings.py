@@ -2,16 +2,26 @@ from dotenv import load_dotenv
 import os
 from os.path import join, dirname
 
-def load_env():
+def base():
     load_dotenv(verbose=True)
     dotenv_path = join(dirname(__file__), '.env')
     load_dotenv(dotenv_path)
 
+def getToken():
+    base()
     DIS_TOKEN = os.environ.get("DISCORD_TOKEN")
-    SERVER_ID = os.environ.get("SERVER_ID")
-    API_KEY = os.environ.get("OPENAI_API_KEY")
+    return DIS_TOKEN
 
-    return DIS_TOKEN, SERVER_ID, API_KEY
+def getId():
+    base()
+    SERVER_ID = os.environ.get("SERVER_ID")
+    return SERVER_ID
+
+def getKey():
+    base()
+    API_KEY = os.environ.get("OPENAI_API_KEY")
+    return API_KEY
+
 
 if __name__=="__main__":
-    print(load_env())
+    print(getToken(),getId(),getKey())
