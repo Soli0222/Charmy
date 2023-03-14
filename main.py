@@ -8,7 +8,7 @@ api_key = settings.getKey()
 
 INITAL_EXTENSIONS = [
     "cogs.hoge",
-    "cogs.ask"
+    "cogs.ping"
 
 ]
 
