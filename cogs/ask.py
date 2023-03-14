@@ -10,6 +10,7 @@ def gpt(key,text):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
+            {"role": "system", "content": "日本語で返して"},
             {"role": "user", "content": text},
         ]
     )
