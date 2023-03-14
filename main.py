@@ -8,7 +8,8 @@ api_key = settings.getKey()
 
 INITAL_EXTENSIONS = [
     "cogs.ask",
-    "cogs.ping"
+    "cogs.ping",
+    "cogs.summary"
 
 ]
 
