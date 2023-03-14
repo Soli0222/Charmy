@@ -40,5 +40,5 @@ class AskCog(commands.Cog):
         embed=discord.Embed(title=text, description=message, color=0xff9300)
         await ctx.followup.send(embed=embed)
         
-async def setup(bot: commands.Bot): # この関数が超重要
+async def setup(bot: commands.Bot):
     await bot.add_cog(AskCog(bot))
