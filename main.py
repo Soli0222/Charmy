@@ -2,10 +2,6 @@ import settings
 import discord
 from discord.ext import commands
 
-bot_token = settings.getToken()
-server_id = settings.getId()
-api_key = settings.getKey()
-
 INITAL_EXTENSIONS = [
     "cogs.ask",
     "cogs.ping",
@@ -25,4 +21,5 @@ class Charmy(commands.Bot):
             await self.load_extension(extension)
 
 if __name__ == '__main__':
+    bot_token = settings.getToken()
     Charmy().run(bot_token)
