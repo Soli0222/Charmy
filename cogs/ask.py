@@ -16,7 +16,7 @@ class AskCog(commands.Cog):
 
     @app_commands.command(
         name="ask",
-        description="チャーミィになんでも質問できます。"
+        description="チャーミィになんでも質問できます"
     )
     @app_commands.guilds(int(settings.getId()))
     async def ask(self, ctx:discord.Interaction, text: str):

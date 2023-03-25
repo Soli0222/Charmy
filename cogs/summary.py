@@ -29,17 +29,17 @@ class SummaryCog(commands.Cog):
 
     @app_commands.command(
         name="summary",
-        description="チャーミィがサイトを要約します。。"
+        description="チャーミィがサイトを要約します WebサイトのURLを入力してください"
     )
     @app_commands.guilds(int(settings.getId()))
-    async def summary(self, ctx:discord.Interaction, text: str):
+    async def summary(self, ctx:discord.Interaction, url: str):
         await ctx.response.defer()
         try:
-            message = gpt(settings.getKey(),text)
+            message = gpt(settings.getKey(),url)
         except Exception as e:
             message = "回答が見つからなかったか、内部でエラーが発生した可能性があります。"
             print(e)
-        embed=discord.Embed(title=text, description=message, color=0xff9300)
+        embed=discord.Embed(title=url, description=message, color=0xff9300)
         await ctx.followup.send(embed=embed)
         
 async def setup(bot: commands.Bot):

@@ -16,7 +16,7 @@ class AskEphCog(commands.Cog):
 
     @app_commands.command(
         name="ask_eph",
-        description="チャーミィになんでも質問できます。回答は自分以外の誰にも見られない形になります。"
+        description="チャーミィになんでも質問できます 回答は自分以外の誰にも見られない形になります"
     )
     @app_commands.guilds(int(settings.getId()))
     async def ask(self, ctx:discord.Interaction, text: str):
