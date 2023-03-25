@@ -5,7 +5,7 @@ from discord.ext import commands
 INITAL_EXTENSIONS = [
     "cogs.ask",
     "cogs.ask_eph",
-    "cogs.ping",
+    "cogs.info",
     "cogs.summary"
 
 ]
