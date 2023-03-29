@@ -6,7 +6,8 @@ INITAL_EXTENSIONS = [
     "cogs.ask",
     "cogs.ask_eph",
     "cogs.info",
-    "cogs.summary"
+    "cogs.summary",
+    "cogs.imakita"
 
 ]
 
